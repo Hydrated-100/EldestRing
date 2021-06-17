@@ -16,7 +16,6 @@ bin/
 *.user
 *.unityproj
 *.booproj
-*.csproj
 *.iss
 
 .DS_Store
