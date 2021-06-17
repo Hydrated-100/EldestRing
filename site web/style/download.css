@@ -1,0 +1,18 @@
+body{
+    margin:0;
+    color::#6a6f8c;
+    background-image: url('images/home_background.png');
+    font:600 16px/18px 'Open Sans',sans-serif;
+}
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+
+
+
+
+h3{
+    font:600 30px/18px 'Open Sans',sans-serif;
+    color:red;
+    text-align:center;
+}

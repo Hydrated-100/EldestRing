@@ -1,32 +1,31 @@
-# Prerequisites
-*.d
+Library/
+Temp/
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+SwitchIL2CPPCache/
+SwitchIL2CPPStats/
 
-# Precompiled Headers
-*.gch
-*.pch
+Build/
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+ExportedObj/
+obj/
+.idea/
+bin/
+*.svd
+*.userprefs
+*.pidb
+*.suo
+*.user
+*.unityproj
+*.booproj
+*.csproj
+*.iss
 
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.rtf
+*.meta
