@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &913926739901990662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 913926739901990663}
+  - component: {fileID: 5968245409424149556}
+  - component: {fileID: 2231467398861187293}
+  m_Layer: 0
+  m_Name: 'Multiplayer '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &913926739901990663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913926739901990662}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 276.66913, y: 151.92639, z: -285.875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5968245409424149556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913926739901990662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b58d78ac6819c4683b7811b9968b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2231467398861187293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913926739901990662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d72d3a6b981170849ad46ab5864f0129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colonnes: 8
+  rows: 8
+  obstacle:
+    minimum: 5
+    maximum: 18
+  Door: {fileID: 7231899484656263500, guid: 0dbca2c528f642449b22c5fc91559f28, type: 3}
+  FloorTiles:
+  - {fileID: 2671119794227461697, guid: da00503116f607b4394c6abad19bf211, type: 3}
+  - {fileID: 5988690670207555316, guid: c72246c0dd330ae4da14c38191dcfa30, type: 3}
+  - {fileID: 3556190800629629315, guid: 34fbe57b79972cd4680e2170b7287510, type: 3}
+  - {fileID: 2671119794227461697, guid: da00503116f607b4394c6abad19bf211, type: 3}
+  ObstacleTiles:
+  - {fileID: 3801726820246413955, guid: 41d7f809b72d98748ba07f537eba2a42, type: 3}
+  Enemis:
+  - {fileID: 2374719557338471332, guid: 39af0f1c5c5165e49970f80c01f6c176, type: 3}
+  Wall:
+  - {fileID: 5458787692420763073, guid: a14c1ab75c05cfc4d80a9276f42e4e5b, type: 3}
+  Boss:
+  - {fileID: 360918956623389324, guid: f547bac2fa300a6478d2024c2bbe726c, type: 3}
+  Player: {fileID: 0}
+  boardHolder: {fileID: 0}
+  gridPositions: []

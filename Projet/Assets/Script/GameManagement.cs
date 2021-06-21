@@ -1,16 +1,18 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManagement : MonoBehaviour
 {
-    public static BoardManager boardscript = null;
+    public static BoardManager Boardscript = null;
     public static GameManagement instance = null;
     private List<Entity> enemi;
 
-    private int level = 1;
-
+    private static int level = 1;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -27,19 +29,32 @@ public class GameManagement : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-        boardscript = GetComponent<BoardManager>();
+        Boardscript = GetComponent<BoardManager>();
         enemi = new List<Entity>();
         InitGame();
     }
 
-    void levelClear()
+    public void levelClear()
     {
-        level++;
+        level += 1;
         InitGame();
     }
+
     public void InitGame()
     {
-        boardscript.SetupBoard(level);
+
+        if (level >= 3)
+        {
+            level = 0;
+            Debug.Log("Salle du boss");
+            SceneManager.LoadScene("NiveauBoss");
+        }
+        else
+        {
+            Debug.Log(level);
+            Boardscript.SetupBoard(level);  
+        }
+        
     }
 
     public void GameOver()

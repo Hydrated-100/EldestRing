@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections;
 using Photon.Pun;
-using UnityEditorInternal.VersionControl;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-    public class PlayerMovement : Entity
+public class PlayerMovement : Entity
     {
         public float moveTime = .0005f;
         public LayerMask blockingLayer;
+        private SpriteRenderer sprite;
 
         private Rigidbody2D rb;
         private BoxCollider2D boxCollid;
         private float reverse;
         private Animator anime;
+        
 
         private Vector2 _movement;
         private Vector3 origine;
@@ -24,6 +24,7 @@ using UnityEngine.UI;
 
         private void Start()
         {
+            sprite = GetComponent<SpriteRenderer>();
             origine = Vector3.zero;
             boxCollid = GetComponent<BoxCollider2D>();
             rb = GetComponent<Rigidbody2D>();
@@ -46,14 +47,15 @@ using UnityEngine.UI;
             boxCollid.enabled = false;
             hit = Physics2D.Linecast(start, end, blockingLayer);
             boxCollid.enabled = true;
-
-            if (hit.transform is null)
-            {
-                StartCoroutine(Mouvement(end));
-                return true;
-            }
-
-            return false;
+                
+             if (hit.transform is null)
+             {
+                 StartCoroutine(Mouvement(end));
+                 return true;
+             }
+                
+             return false;
+            
         }
 
         protected IEnumerator Mouvement(Vector3 fin)
@@ -72,13 +74,14 @@ using UnityEngine.UI;
         protected void MoveAttemp<T>(int xDir, int yDir)
         {
             bool able = Move(xDir, yDir, out var hit);
-            
-
+                            
             T hitComp = hit.transform.GetComponent<T>();
             if (!able && hitComp != null)
             {
                 cantMove(hitComp);
             }
+
+
         }
         
 
@@ -100,32 +103,39 @@ using UnityEngine.UI;
         {
             if (other.tag == "Door")
             {
-                Invoke("Restart", 0.5f);
+                Invoke(nameof(Restart), 0.5f);
             }
         }
 
         private void Restart()
         {
             gameObject.transform.position = origine;
-            GameManagement.instance.InitGame();
+            GameManagement.instance.levelClear();
         }
 
         void Update()
         {
             if (CheckGameOver()) return;
-            int hori = 0;
-            int vert = 0;
 
-            hori = (int) Input.GetAxisRaw("Horizontal");
-            vert = (int) Input.GetAxisRaw("Vertical");
-
+            int hori = (int) Input.GetAxisRaw("Horizontal");
+            int vert = (int) Input.GetAxisRaw("Vertical");
+              
             if (hori != 0)
             {
                 vert = 0;
             }
-
+              
             if (hori == 0 && vert == 0) return;
-            MoveAttemp<Wall>(hori, vert);
-            MoveAttemp<Entity>(hori, vert);
+              
+            try
+            {
+                MoveAttemp<Wall>(hori, vert);
+                MoveAttemp<Entity>(hori, vert);
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine("Nothing here");
+            } 
+            
         }
     }

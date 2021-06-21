@@ -17,7 +17,7 @@ public class BoardManager : MonoBehaviour
             maxi = max;
             mini = min;
         }
-    } 
+    }
 
     public int colonnes = 8;
     public int rows = 8;
@@ -33,8 +33,10 @@ public class BoardManager : MonoBehaviour
 
     public GameObject[] Wall;
 
+    public GameObject[] Boss;
+
     public GameObject player = null;
-    
+
     public Transform boardHolder;
 
     public List<Vector3> gridPositions = new List<Vector3>();
@@ -63,7 +65,7 @@ public class BoardManager : MonoBehaviour
                 GameObject toInstantiate = FloorTiles[Random.Range(0, FloorTiles.Length)];
                 if (i == -1 || i == colonnes || j == -1 || j == rows)
                 {
-                    if (i == colonnes/2 && j == rows)
+                    if (i == colonnes / 2 && j == rows)
                     {
                         toInstantiate = Door;
                     }
@@ -71,13 +73,15 @@ public class BoardManager : MonoBehaviour
                     {
                         toInstantiate = Wall[Random.Range(0, Wall.Length)];
                     }
-                    
+
                 }
-                
-                GameObject instance = Instantiate(toInstantiate, new Vector3(i,j,0f), Quaternion.identity);
+
+                GameObject instance = Instantiate(toInstantiate, new Vector3(i, j, 0f), Quaternion.identity);
+
                 instance.transform.SetParent(boardHolder);
             }
         }
+
         Instantiate(player, Vector3.zero, Quaternion.identity);
     }
 
@@ -107,6 +111,12 @@ public class BoardManager : MonoBehaviour
         int enemyCount = (int) Math.Log(4 * level, 2f);
         LayObject(Enemis, enemyCount, enemyCount);
         LayObject(ObstacleTiles, 10, 25);
-        
+    }
+
+    public void SetupBossRoom()
+    {
+        InitialiseGrid();
+        BoardSetUp();
+        LayObject(Boss, 1, 1);
     }
 }

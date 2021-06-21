@@ -6,7 +6,7 @@ public class Load : MonoBehaviour
 {
     public GameObject gameManager;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         if (GameManagement.instance == null)
         {

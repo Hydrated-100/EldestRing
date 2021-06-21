@@ -55,7 +55,7 @@ public class Entity : MonoBehaviourPun
 
     public void Damaged(int loss)
     {
-        hp = hp - loss;
+        hp -= loss;
         if (hp <= 0)
         {
             gameObject.SetActive(false);
