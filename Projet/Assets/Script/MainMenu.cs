@@ -15,9 +15,5 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Niveaux");
     }
-
-    public void Multi()
-    {
-        SceneManager.LoadScene("Niveaux");
-    }
+    
 }
