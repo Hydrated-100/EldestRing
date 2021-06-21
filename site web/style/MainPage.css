@@ -9,10 +9,9 @@ body {
     font-family: "Inter", sans-serif;
     font-size: 120%;
     color: rgb(247, 247, 247);
-    background-size: 110%;
+    text-align: center;
     background-image: url('images/home_background.png');
-    
-    
+    background-size: 50%;
 }
 
 body.a{
@@ -20,23 +19,14 @@ body.a{
     text-shadow: black 0.1em 0.1em 0.2em;
 }
 
-.LoginButton{
-    text-align:right;
 
-}
-
-.fit-picture{
-    text-align:center;
-    Margin : auto;
-Display:flex    ;
-}
 
 h1 {
     font: italic 1.2em "Fira Sans", serif;
     font-size: 250%;
     color: rgb(255, 255, 255);
     display: block;
-    text-align: center;
+    top: 0%;
 
 }
 
@@ -46,14 +36,6 @@ h1 {
     font-size: 50%;
     font-weight: 900;
     text-align: center;
-}
-
-.regle {
-    top : 0%;
-    right: 10%;
-    font-size: 50%;
-    font-weight: 900;
-    
 }
 
 .NeoMovie {
@@ -112,15 +94,4 @@ h3 {
     height: 30px;
     background: color;
     font-family: 'Red Hat Display', sans-serif;
-}
-
-h4 {
-    font: italic 1.2em "Fira Sans", serif;
-    font-size: 250%;
-    color: rgb(255, 255, 255);
-    display: block;
-    top: 100%;
-    text-align: left ;
-    align-items: top ;
-
 }
