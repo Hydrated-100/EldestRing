@@ -10,10 +10,10 @@ public class MultiplayerScript : MonoBehaviourPunCallbacks
         [SerializeField] private GameObject waitingStatus ; //scène avec waiting text
         [SerializeField] private TextMeshProUGUI waitingText;
         
-        private bool isConnect = false;
+        private bool isConnect;
 
         private const String Ver = "6.";
-        private const int MaxPlayer = 3;
+        private const int MaxPlayer = 2;
 
         private void Awake()
         {
@@ -37,13 +37,16 @@ public class MultiplayerScript : MonoBehaviourPunCallbacks
             {
                 PhotonNetwork.GameVersion = Ver;
                 PhotonNetwork.ConnectUsingSettings();
+                Debug.Log("Find Room Time");
             }
         }
 
         public override void OnConnectedToMaster()
         {
+            
             if (isConnect)
             {
+                Debug.Log("Connected to master");
                 PhotonNetwork.JoinRandomRoom();
             }
         }
@@ -82,12 +85,12 @@ public class MultiplayerScript : MonoBehaviourPunCallbacks
         {
             if (PhotonNetwork.CurrentRoom.PlayerCount == MaxPlayer)
             {
+                Debug.Log("Room Enterd, waiting for players");
                 Debug.Log(PhotonNetwork.CurrentRoom.PlayerCount);
                 PhotonNetwork.CurrentRoom.IsOpen = false;
                 waitingText.text = "Check make Atheist";
-
-                PhotonNetwork.LoadLevel("NiveauMulti");
                 
+                PhotonNetwork.LoadLevel("NiveauMulti");
             }
 
         }
